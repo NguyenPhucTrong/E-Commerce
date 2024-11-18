@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <h1 class="text-7xl font-bold underline">
-        Hello world!
+        Hello world23!
       </h1>
     </div>
   );
