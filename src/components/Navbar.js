@@ -30,6 +30,13 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center gap-6">
+        <Link to="/list-favorited">
+          <img
+            src={assets.favoriteList_icon}
+            className="w-6 cursor-pointer"
+            alt=""
+          />
+        </Link>
         <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
         <div className="group relative">
