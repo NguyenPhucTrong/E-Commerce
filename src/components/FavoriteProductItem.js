@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
+import "react-toastify/dist/ReactToastify.css";
 
 const FavoriteProductItem = ({ id, image, name, price, setHidden }) => {
   const { currency } = useContext(ShopContext);
@@ -16,7 +17,7 @@ const FavoriteProductItem = ({ id, image, name, price, setHidden }) => {
       setCheck(false);
     } else {
       if (JSON.parse(localStorage.getItem("arrCompare")).length === 2) {
-        console.log("toi da 2");
+        alert("You can only choose a maximum of 2 products!");
       } else {
         localStorage.setItem("arrCompare", JSON.stringify([...arr, id]));
         setCheck(true);
