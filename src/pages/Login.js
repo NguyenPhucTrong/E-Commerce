@@ -22,6 +22,12 @@ const Login = () => {
     } else {
       alert("Email hoặc mật khẩu không đúng!");
     }
+
+const Login = () => {
+  const [currentState, setCurrentState] = useState("Sign Up");
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -50,6 +56,7 @@ const Login = () => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+
         required
       />
       <input
@@ -83,6 +90,7 @@ const Login = () => {
         type="submit"
         className="bg-black text-white font-light px-8 py-2 mt-4"
       >
+//       <button className="bg-black text-white font-light px-8 py-2 mt-4">
         {currentState === "Login" ? "Sign In" : "Sign Up"}
       </button>
     </form>
