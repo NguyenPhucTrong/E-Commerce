@@ -1,4 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const [currentState, setCurrentState] = useState("Sign Up");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  // Account Admin
+  const adminAccount = {
+    email: "admin@gmail.com",
+    password: "admin",
+  };
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    if (email === adminAccount.email && password === adminAccount.password) {
+      alert("Đăng nhập thành công! Xin chào Admin!");
+      navigate("/admin/product");
+    } else {
+      alert("Email hoặc mật khẩu không đúng!");
+    }
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Sign Up");
@@ -31,12 +54,17 @@ const Login = () => {
         type="email"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+
         required
       />
       <input
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         required
       />
 
@@ -58,7 +86,11 @@ const Login = () => {
           </p>
         )}
       </div>
-      <button className="bg-black text-white font-light px-8 py-2 mt-4">
+      <button
+        type="submit"
+        className="bg-black text-white font-light px-8 py-2 mt-4"
+      >
+//       <button className="bg-black text-white font-light px-8 py-2 mt-4">
         {currentState === "Login" ? "Sign In" : "Sign Up"}
       </button>
     </form>
