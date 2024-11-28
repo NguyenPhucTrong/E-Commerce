@@ -15,8 +15,6 @@ import Orders from "./pages/Orders";
 import ProductPage from "./pages/ProductPage";
 import OrderPage from "./pages/OrderPage";
 import ListFavorited from "./pages/ListFavorited";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -35,8 +33,8 @@ function App() {
 
       <ToastContainer />
       {isAdminRoute ? <AdminNavbar /> : <Navbar />}
-    
-    //  <Navbar />
+
+      {/* <Navbar /> */}
       <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
