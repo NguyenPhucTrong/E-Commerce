@@ -2,29 +2,11 @@ import React, { useState } from "react";
 
 const ProductPage = () => {
   //Sample Products
-  const [products, setProducts] = useState([
-    {
-      productId: "P001",
-      productName: "Sản phẩm 1",
-      price: 100,
-      quantity: 10,
-      type: "Loại A",
-      image: "",
-    },
-    {
-      productId: "P002",
-      productName: "Sản phẩm 2",
-      price: 200,
-      quantity: 5,
-      type: "Loại B",
-      image: "",
-    },
-  ]);
+  const [products, setProducts] = useState([]);
 
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [productId, setProductId] = useState("");
   const [type, setType] = useState("");
   const [image, setImage] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -32,24 +14,24 @@ const ProductPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!productName || !price || !quantity || !productId || !type || !image) {
+    if (!productName || !price || !quantity || !type || !image) {
       alert("Vui lòng điền đầy đủ thông tin sản phẩm!");
       return;
     }
     const newProduct = {
+      productId: Math.floor(Math.random() * 1000000), // ID random number
       productName,
       price,
       quantity,
-      productId,
       type,
       image,
     };
+
     setProducts([...products, newProduct]);
 
     setProductName("");
     setPrice("");
     setQuantity("");
-    setProductId("");
     setType("");
     setImage(null);
     setIsFormVisible(false);
@@ -130,22 +112,6 @@ const ProductPage = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="productId"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Product Id
-                </label>
-                <input
-                  type="text"
-                  id="productId"
-                  value={productId}
-                  onChange={(e) => setProductId(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
               <div>
                 <label
                   htmlFor="productName"
